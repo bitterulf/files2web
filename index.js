@@ -130,8 +130,10 @@ var cleanup = function(cb) {
   var files = fs.readdirSync(dirPath);
   if (files.length > 0) {
     for (var i = 0; i < files.length; i++) {
-      var filePath = dirPath + '/' + files[i];
-      fs.unlinkSync(filePath);
+      if (!_.s.startsWith(files[i], '.')) {
+        var filePath = dirPath + '/' + files[i];
+        fs.unlinkSync(filePath);
+      }
     }
   }
   cb(null);
