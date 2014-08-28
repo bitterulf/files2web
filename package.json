@@ -1,0 +1,21 @@
+{
+  "name": "md2web",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "-",
+  "dependencies": {
+    "underscore": "^1.7.0",
+    "meta-marked": "^0.3.1",
+    "underscore.string": "^2.3.3",
+    "js-yaml": "^3.2.1",
+    "image-size": "^0.3.2",
+    "install": "^0.1.7",
+    "npm": "^1.4.24",
+    "jade": "^1.5.0"
+  }
+}

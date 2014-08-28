@@ -1,0 +1,22 @@
+mixin html(title)
+  html
+    head
+      title= title
+    body
+      block
+
+mixin menu(title, tagname)
+  div
+    div= title
+    each data, filename in content
+      - if (_.s.endsWith(filename, '.jade'))
+        - if (!tagname || _.indexOf(data.tags, tagname) != -1)
+          a(href=webname)= data.webname
+
+mixin mdList(title, tagname)
+  div
+    div= title
+    each data, filename in content
+      - if (_.s.endsWith(filename, '.md'))
+        - if (!tagname || _.indexOf(data.tags, tagname) != -1)
+          div= data.webname
