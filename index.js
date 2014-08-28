@@ -109,8 +109,15 @@ var loadContent = function(cb) {
 
 var renderTemplates = function(content, cb) {
   _.each(content, function(data, file) {
+    var output;
     if (_.s.endsWith(file, '.jade')) {
-      var output = jade.renderFile(__dirname+'/content/'+file, {content: content, _:_, pretty: true});
+      output = jade.renderFile(__dirname+'/content/'+file, {content: content, _:_, pretty: true});
+      console.log(file, data, output);
+      fs.writeFileSync(__dirname+'/output/'+data.webname, output);
+    }
+    else if (_.s.endsWith(file, '.md')) {
+      var template = data.data.meta.template;
+      output = jade.renderFile(__dirname+'/content/_'+template+'.jade', {content: content, _:_, pretty: true, renderedHtml: data.data.html});
       console.log(file, data, output);
       fs.writeFileSync(__dirname+'/output/'+data.webname, output);
     }
